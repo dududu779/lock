@@ -30,10 +30,9 @@
 .\objects\main.o: .\Library\misc.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\objects\main.o: .\System\Timer.h
-.\objects\main.o: .\Hardware\OLED.h
-.\objects\main.o: .\Hardware\OLED_Data.h
 .\objects\main.o: .\Hardware\MatrixKey.h
 .\objects\main.o: .\System\Delay.h
-.\objects\main.o: User\Menu_Display.h
-.\objects\main.o: .\Hardware\Menu.h
+.\objects\main.o: .\Middle\Menu_Display.h
+.\objects\main.o: User\Menu.h
 .\objects\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\main.o: User\APP.h

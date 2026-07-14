@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware</IncludePath>
+              <IncludePath>.\Start;.\Library;.\User;.\System;.\Hardware;.\Middle</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -738,15 +738,20 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\OLED_Font.h</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middle</GroupName>
+          <Files>
             <File>
-              <FileName>Menu.c</FileName>
+              <FileName>Menu_Display.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Hardware\Menu.c</FilePath>
+              <FilePath>.\Middle\Menu_Display.c</FilePath>
             </File>
             <File>
-              <FileName>Menu.h</FileName>
+              <FileName>Menu_Display.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Hardware\Menu.h</FilePath>
+              <FilePath>.\Middle\Menu_Display.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -774,14 +779,24 @@
               <FilePath>.\User\stm32f10x_it.h</FilePath>
             </File>
             <File>
-              <FileName>Menu_Display.c</FileName>
+              <FileName>APP.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\User\Menu_Display.c</FilePath>
+              <FilePath>.\User\APP.c</FilePath>
             </File>
             <File>
-              <FileName>Menu_Display.h</FileName>
+              <FileName>APP.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\User\Menu_Display.h</FilePath>
+              <FilePath>.\User\APP.h</FilePath>
+            </File>
+            <File>
+              <FileName>Menu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\User\Menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>Menu.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\Menu.h</FilePath>
             </File>
           </Files>
         </Group>

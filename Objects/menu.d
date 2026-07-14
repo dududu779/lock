@@ -1,4 +1,4 @@
-.\objects\menu.o: Hardware\Menu.c
+.\objects\menu.o: User\Menu.c
 .\objects\menu.o: .\Start\stm32f10x.h
 .\objects\menu.o: .\Start\core_cm3.h
 .\objects\menu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -29,8 +29,7 @@
 .\objects\menu.o: .\Library\stm32f10x_wwdg.h
 .\objects\menu.o: .\Library\misc.h
 .\objects\menu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\objects\menu.o: Hardware\Menu.h
+.\objects\menu.o: User\Menu.h
 .\objects\menu.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\menu.o: Hardware\OLED.h
-.\objects\menu.o: Hardware\OLED_Data.h
-.\objects\menu.o: .\User\Menu_Display.h
+.\objects\menu.o: User\APP.h
+.\objects\menu.o: .\Middle\Menu_Display.h

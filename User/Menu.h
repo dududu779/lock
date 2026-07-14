@@ -51,14 +51,6 @@ typedef struct {
     uint8_t Sub_cnt;
 } Menustruct_t;
 
-/* ==================== 外部变量 ==================== */
-
-extern const Menustruct_t All_Menu[];
-extern uint8_t Current_Parent;
-extern uint8_t Current_Index;
-extern uint8_t Current_Offset;      // 当前选中在当前页的位置
-extern uint8_t Current_Base;      // 页面基地址
-
 /* ==================== 函数声明 ==================== */
 
 // 必须先调用 MenuDisplay_Register 注册驱动，才能调用以下函数
@@ -67,23 +59,8 @@ void Menu_Up(void);
 void Menu_Down(void);
 void Menu_Enter(void);
 void Menu_Back(void);
-uint8_t Menu_Next(uint8_t select, uint8_t max);
-uint8_t Menu_Prev(uint8_t select, uint8_t max);
 
-// 功能函数
-void Func_PwdUnlock(void);
-void Func_CardUnlock(void);
-void Func_FpUnlock(void);
-void Func_OpenDoor(void);
-void Func_ChangePwd(void);
-void Func_Setting(void);
-void Func_About(void);
-void Func_Volume(void);
-void Func_UnlockSound(void);
-void Func_ErrLimit(void);
-void Func_AddCard(void);
-void Func_DelCard(void);
-void Func_AddFp(void);
-void Func_DelFp(void);
+
+
 
 #endif

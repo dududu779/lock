@@ -30,10 +30,11 @@
 ".\objects\matrixkey.o"
 ".\objects\oled.o"
 ".\objects\oled_data.o"
-".\objects\menu.o"
+".\objects\menu_display.o"
 ".\objects\main.o"
 ".\objects\stm32f10x_it.o"
-".\objects\menu_display.o"
+".\objects\app.o"
+".\objects\menu.o"
 --strict --scatter ".\Objects\Project.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

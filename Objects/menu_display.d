@@ -1,5 +1,5 @@
-.\objects\menu_display.o: User\Menu_Display.c
-.\objects\menu_display.o: User\Menu_Display.h
+.\objects\menu_display.o: Middle\Menu_Display.c
+.\objects\menu_display.o: Middle\Menu_Display.h
 .\objects\menu_display.o: .\Start\stm32f10x.h
 .\objects\menu_display.o: .\Start\core_cm3.h
 .\objects\menu_display.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -29,4 +29,6 @@
 .\objects\menu_display.o: .\Library\stm32f10x_usart.h
 .\objects\menu_display.o: .\Library\stm32f10x_wwdg.h
 .\objects\menu_display.o: .\Library\misc.h
+.\objects\menu_display.o: .\Hardware\OLED.h
+.\objects\menu_display.o: .\Hardware\OLED_Data.h
 .\objects\menu_display.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

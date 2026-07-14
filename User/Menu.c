@@ -1,13 +1,13 @@
 #include "stm32f10x.h"
 #include <stddef.h>
 #include "Menu.h"
-#include "OLED.h"
+#include "APP.h"
 #include "Menu_Display.h"   // 只依赖抽象接口，不依赖 OLED.h
 
 /* ==================== 全局菜单表 ==================== */
 const Menustruct_t All_Menu[] = 
 {
-    [PWD_UNLOCK]   = {"密码解锁",   MENU_FUNC, Func_PwdUnlock,  NO_PARENT, PWD_UNLOCK_SUBMENU_START, PWD_UNLOCK_SUBMENU_COUNT},  
+    [PWD_UNLOCK]   = {"密码解锁",   MENU_FUNC, Func_PwdUnlock,  NO_PARENT, OPEN_DOOR, PWD_UNLOCK_SUBMENU_COUNT},  
     [CARD_UNLOCK]  = {"刷卡解锁",   MENU_FUNC, NULL,            NO_PARENT, 0, 0},
     [FP_UNLOCK]    = {"指纹解锁",   MENU_FUNC, NULL,            NO_PARENT, 0, 0},
 
@@ -210,17 +210,17 @@ void Menu_Down(void)
 void Menu_Enter(void)
 {
     // 计算实际选中的菜单项在全局数组中的索引
-    // real_index = 窗口起始位置 + 窗口内选中位置（类似内存地址的基地址和偏移量）
+    // 在当前父菜单的子菜单列表中的位置序号（类似内存地址的基地址和偏移量）
     uint8_t real_index = Current_Base + Current_Offset;
     
     // 通过父菜单和实际索引，获取选中项的全局ID
-    uint8_t selected_id = Menu_GetSubIndex(Current_Parent, real_index);
+    uint8_t real_id = Menu_GetSubIndex(Current_Parent, real_index);
     
     // ========== 进入子菜单 ==========
-    if(All_Menu[selected_id].Type == MENU_ROOT)//如果选中项类型是子菜单，则进入该子菜单
+    if(All_Menu[real_id].Type == MENU_ROOT)//如果选中项类型是子菜单，则进入该子菜单
     {
         // 切换当前父菜单为选中的子菜单
-        Current_Parent = selected_id;
+        Current_Parent = real_id;
         // 重置选中状态和窗口
         Current_Offset = 0;
         Current_Base = 0;
@@ -228,15 +228,16 @@ void Menu_Enter(void)
         Menu_Display(Current_Parent);
     }
     // ========== 执行功能函数 ==========
-    else if(All_Menu[selected_id].Type == MENU_FUNC)
+    else if(All_Menu[real_id].Type == MENU_FUNC)
     {
         // 检查函数指针有效
-        if(All_Menu[selected_id].Func != NULL)
+        if(All_Menu[real_id].Func != NULL)
         {
             // 执行功能回调
-            All_Menu[selected_id].Func();
+            All_Menu[real_id].Func();
             // 功能执行完毕后，返回当前菜单显示
-            Menu_Display(Current_Parent);
+
+        //  Menu_Display(Current_Parent);
         }
     }
 }
@@ -294,33 +295,5 @@ void Menu_Back(void)
     // else: 已在根菜单，无操作（或可做提示音等）
 }
 
-// uint8_t Menu_Next(uint8_t select, uint8_t max)
-// {
-//     if (max == 0) return 0;
-//     select++;
-//     if (select >= max) select = 0;
-//     return select;
-// }
 
-// uint8_t Menu_Prev(uint8_t select, uint8_t max)
-// {
-//     if (max == 0) return 0;
-//     if (select == 0) select = max;
-//     return select - 1;
-// }
 
-/* ==================== 功能函数 ==================== */
-void Func_PwdUnlock(void) {OLED_Clear();}
-void Func_CardUnlock(void) {}
-void Func_FpUnlock(void) {}
-void Func_OpenDoor(void) {}
-void Func_ChangePwd(void) {}
-void Func_Setting(void) {}
-void Func_About(void) {}
-void Func_Volume(void) {}
-void Func_UnlockSound(void) {}
-void Func_ErrLimit(void) {}
-void Func_AddCard(void) {}
-void Func_DelCard(void) {}
-void Func_AddFp(void) {}
-void Func_DelFp(void) {}
